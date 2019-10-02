@@ -15,7 +15,7 @@ class DualState(State):
     Fuction to return state based on input event
     '''
     def on_event(self, event):
-        if event == 'powerDown':
+        if event == 'single':
             return SingleState()
         
         return self
@@ -28,9 +28,9 @@ class SingleState(State):
     Fuction to return state based on input event
     '''
     def on_event(self, event):
-        if event == 'powerDown':
+        if event == 'off':
             return OffState()
-        elif event == 'powerUp':
+        elif event == 'dual':
             return DualState()
             
         return self
@@ -43,7 +43,7 @@ class OffState(State):
     Fuction to return state based on input event
     '''
     def on_event(self, event):
-        if event == 'powerUp':
+        if event == 'single':
             return SingleState()
         
         return self

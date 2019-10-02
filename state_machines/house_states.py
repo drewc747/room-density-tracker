@@ -11,9 +11,15 @@ class MultiOccupiedState(State):
     '''
     Fuction to return state based on input event
     '''
-    def on_event(self, event):
+    def on_event(self, event, count):
         if event == 'exit':
-            return SingleOccupiedState()
+            count -= 1
+            if count > 1:
+                return MultiOccupiedState(), count
+            else:
+                return SingleOccupiedState(), count
+        elif event == 'entry':
+            return MultiOccupiedState(), count + 1
         
         return self
 
@@ -24,11 +30,11 @@ class SingleOccupiedState(State):
     '''
     Fuction to return state based on input event
     '''
-    def on_event(self, event):
+    def on_event(self, event, count):
         if event == 'exit':
-            return UnoccupiedState()
+            return UnoccupiedState(), count - 1
         elif event == 'entry':
-            return MultiOccupiedState()
+            return MultiOccupiedState(), count + 1
             
         return self
 
@@ -39,8 +45,8 @@ class UnoccupiedState(State):
     '''
     Fuction to return state based on input event
     '''
-    def on_event(self, event):
+    def on_event(self, event, count):
         if event == 'entry':
-            return SingleOccupiedState()
+            return SingleOccupiedState(), count + 1
         
         return self

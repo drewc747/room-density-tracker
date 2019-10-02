@@ -12,6 +12,9 @@ class State(object):
     def on_event(self, event):
         pass
         
+    def run(self):
+        pass
+    
     '''
     Fuction to return description of state
         Returns:
