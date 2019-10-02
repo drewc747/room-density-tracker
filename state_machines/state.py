@@ -1,9 +1,9 @@
 # state.py
 
-class State(object)
+class State(object):
     def __init__(self):
-        print(f'Processing current state: {str(self)}')
-    
+        #print(f'Processing current state: {str(self)}')
+        pass
     '''
     Function to handle events delegated to state:
         Parameters:

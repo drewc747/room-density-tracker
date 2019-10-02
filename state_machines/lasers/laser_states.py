@@ -1,5 +1,8 @@
 # laser_states.py
 
+import sys
+sys.path.insert(1, '../')
+
 from state import State
 
 # Start of laser states
