@@ -8,6 +8,9 @@ be wireless and work on the homes wifi. Some examples of functionality include:
 - Automatic locks
 - Thermostat sleep mode
 
+## Current Status:
+Currently the state machines for each room, laser module, and the house are created. When an input from a laser module is counts for each room and the whole house are updated and laser power modes are updated. This is demonstrated by running hub_test.py. Next steps are to set up the hardware.
+
 ## Resources:
 The room density tracker consists of the following submodules:
 
